@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:13:45 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/20 16:22:07 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:35:39 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,5 @@ char	**ft_split(char *s, char c)
 	if (!s2)
 		return (0);
 	s2 = ft_split_words(s, c, s2, num_words);
-	free(s);
 	return (s2);
 }

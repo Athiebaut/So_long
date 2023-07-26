@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:55:36 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/20 16:01:33 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/07/26 16:14:44 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	map_init(t_jeu *so_long)
 {
+	so_long->buffer = NULL;
 	so_long->carte = NULL;
 	so_long->carte_x = 0;
 	so_long->carte_y = 0;
@@ -21,9 +22,11 @@ void	map_init(t_jeu *so_long)
 	so_long->points = 0;
 	so_long->sortie = 0;
 	so_long->invalides = 0;
+	so_long->chemin_points = 0;
+	so_long->chemin_sortie = 0;
 }
 
-void	check_args(int ac, char **av)
+void	check_args(int ac, char **av) //check 2 arguments + fichier '.ber'
 {
 	int	len;
 	
@@ -36,11 +39,11 @@ void	check_args(int ac, char **av)
 	if (av[1][len - 4] != '.' || av[1][len - 3] != 'b' || av[1][len - 2] != 'e' || av[1][len - 1] != 'r')
 	{
 		ft_printf("Error, extension de la map incorrecte, merci de fournir un fichier \'.ber\'.\n");
-		exit (1);
+		exit (0);
 	}
 }
 
-int	main(int ac, char **av)
+int	main(int ac, char **av) //fonction so_long
 {
 	t_jeu	so_long;
 
