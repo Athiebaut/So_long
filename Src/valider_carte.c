@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valider_la_carte.c                                 :+:      :+:    :+:   */
+/*   valider_carte.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:10:46 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/26 16:42:52 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/07/26 22:55:42 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	check_chemin(t_jeu *so_long)
 				{
 					so_long->x = 0;
 					so_long->y = 0;
-					ft_printf("Good\n");
 					return ;
 				}
 				else
@@ -93,14 +92,13 @@ void	check_chemin(t_jeu *so_long)
 void	valider_carte(int ac, char **av, t_jeu *so_long)
 {
 	int	fd;
-	write(1, "coucou\n", 7);
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
 		ft_printf("Error, impossible de lire le fichier.\n");
 		exit (1);
 	}
-	so_long->buffer = get_the_map(fd);
+	so_long->buffer = get_the_map(fd, so_long->buffer);
 	check_characters(so_long->buffer, so_long);
 	so_long->carte = ft_split(so_long->buffer, '\n');
 	so_long->carte_x = ft_strlen(so_long->carte[0]);

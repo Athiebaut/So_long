@@ -2,7 +2,7 @@ NAME = so_long
 PRINTF = libftprintf.a
 LIBFT = libft.a
 
-SRC_FILES = so_long.c so_long_utils.c valider_la_carte.c check_carte.c
+SRC_FILES = so_long.c so_long_utils.c valider_carte.c check_carte.c
 		
 SRC = ${addprefix Src/, ${SRC_FILES}}
 OBJ = ${SRC:.c=.o}

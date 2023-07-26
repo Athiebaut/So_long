@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:45:06 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/26 16:14:23 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/07/26 23:37:52 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 typedef struct s_jeu
 {
+	void	*identifiant;
 	char	*buffer;
 	char	**carte;
 		int	carte_x;
@@ -31,7 +32,7 @@ typedef struct s_jeu
 }		t_jeu;
 
 void	ft_free(t_jeu *so_long);
-char	*get_the_map(int fd);
+char	*get_the_map(int fd, char *map);
 size_t	count_lines(char **carte);
 
 void	valider_carte(int ac, char **av, t_jeu *so_long);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 11:29:41 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/26 16:16:48 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/07/26 22:47:27 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ size_t	count_lines(char **carte)
 	return (i);
 }
 
-char	*get_the_map(int fd)
+char	*get_the_map(int fd, char *map)
 {
 	char	*buffer;
-	char	*map;
 	int	reads;
-
+	int i = 0;
+	
 	buffer = (char *)malloc(11);
 	if (!buffer)
 		return (NULL);
