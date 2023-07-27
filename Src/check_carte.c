@@ -6,7 +6,7 @@
 /*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 14:28:40 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/26 23:12:30 by alix             ###   ########.fr       */
+/*   Updated: 2023/07/27 13:20:22 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,7 @@ static void	verifier_limites_y(t_jeu *so_long)
 void	check_carte(t_jeu *so_long)
 {
 	int	i;
-	int	len;
-	int	tmp;
+	size_t	len;
 
 	i = -1;
 	len = ft_strlen(so_long->carte[0]);

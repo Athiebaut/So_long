@@ -6,7 +6,7 @@
 /*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 11:29:41 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/26 22:47:27 by alix             ###   ########.fr       */
+/*   Updated: 2023/07/27 13:17:16 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char	*get_the_map(int fd, char *map)
 {
 	char	*buffer;
 	int	reads;
-	int i = 0;
 	
 	buffer = (char *)malloc(11);
 	if (!buffer)

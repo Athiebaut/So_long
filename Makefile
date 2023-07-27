@@ -1,8 +1,9 @@
 NAME = so_long
-PRINTF = libftprintf.a
-LIBFT = libft.a
+PRINTF = Printf/libftprintf.a
+LIBFT = Libft/libft.a
+MLX = mlx_linux/libmlx_Linux.a
 
-SRC_FILES = so_long.c so_long_utils.c valider_carte.c check_carte.c
+SRC_FILES = so_long.c so_long_utils.c valider_carte.c check_carte.c remplir_fenetre.c
 		
 SRC = ${addprefix Src/, ${SRC_FILES}}
 OBJ = ${SRC:.c=.o}
@@ -12,26 +13,25 @@ RM = rm -f
 
 ${NAME}: ${OBJ}
 	@make -C Printf 
-	@cp Printf/libftprintf.a .
-	@make -C Libft 
-	@cp Libft/libft.a .
-	${CC} ${FLAGS} ${OBJ} -I Inc ${PRINTF} ${LIBFT} -o ${NAME}
+	@make -C Libft
+	@make -C mlx_linux
+	${CC} ${FLAGS} ${OBJ} -I Inc ${PRINTF} ${LIBFT} ${MLX} -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o ${NAME}
 
 
 all: ${NAME}
-	${CC} ${FLAGS} ${OBJ} -I Inc ${PRINTF} ${LIBFT} -o ${NAME}
+#${CC} ${FLAGS} ${OBJ} -I Inc ${PRINTF} ${LIBFT} -o ${NAME}
 
 
 clean:
 	@make clean -C Printf
 	@make clean -C Libft
+	@make clean -C mlx_linux
 	${RM} ${OBJ}
 
 fclean: clean
 	@make fclean -C Printf
 	@make fclean -C Libft
 	${RM} ${NAME}
-	${RM} ${PRINTF} ${LIBFT}
 
 re: fclean
 	make all

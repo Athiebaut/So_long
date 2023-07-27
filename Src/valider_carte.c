@@ -6,7 +6,7 @@
 /*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:10:46 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/26 22:55:42 by alix             ###   ########.fr       */
+/*   Updated: 2023/07/27 13:18:03 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	check_characters(char *map, t_jeu *so_long)
 	}
 }
 
-void	valider_chemin(int y, int x, t_jeu *so_long)
+static void	valider_chemin(int y, int x, t_jeu *so_long)
 {
 	if (so_long->carte[y][x] == 'E')
 		so_long->chemin_sortie++;
@@ -60,7 +60,7 @@ void	valider_chemin(int y, int x, t_jeu *so_long)
 	valider_chemin((y + 1), x, so_long);
 }
 
-void	check_chemin(t_jeu *so_long)
+static void	check_chemin(t_jeu *so_long)
 {
 	so_long->y = 0;
 	while(++so_long->y < so_long->carte_y)
@@ -89,7 +89,7 @@ void	check_chemin(t_jeu *so_long)
 	
 }
 
-void	valider_carte(int ac, char **av, t_jeu *so_long)
+void	valider_carte(char **av, t_jeu *so_long)
 {
 	int	fd;
 	fd = open(av[1], O_RDONLY);
