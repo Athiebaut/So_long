@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:45:06 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/28 00:52:56 by alix             ###   ########.fr       */
+/*   Updated: 2023/07/28 12:57:17 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,5 @@ void	valider_carte(char **av, t_jeu *so_long);
 void	check_carte(t_jeu *so_long);
 
 void	remplir_fenetre(t_jeu *so_long);
+void	mettre_limites(t_jeu *so_long);
+void	mettre_joueur(t_jeu *so_long);

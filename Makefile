@@ -3,7 +3,7 @@ PRINTF = Printf/libftprintf.a
 LIBFT = Libft/libft.a
 MLX = mlx_linux/libmlx_Linux.a
 
-SRC_FILES = so_long.c so_long_utils.c valider_carte.c check_carte.c remplir_fenetre.c
+SRC_FILES = so_long.c so_long_utils.c valider_carte.c check_carte.c gestion_fenetre.c remplir_fenetre.c
 		
 SRC = ${addprefix Src/, ${SRC_FILES}}
 OBJ = ${SRC:.c=.o}
