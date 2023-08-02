@@ -6,7 +6,7 @@
 /*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:55:36 by athiebau          #+#    #+#             */
-/*   Updated: 2023/07/27 14:37:50 by alix             ###   ########.fr       */
+/*   Updated: 2023/08/01 23:59:20 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ static void fenetre(t_jeu *so_long)
 }
 
 
-static void	map_init(t_jeu *so_long)
-{
-	so_long->buffer = NULL;
-	so_long->carte = NULL;
-	so_long->carte_x = 0;
-	so_long->carte_y = 0;
-	so_long->joueur = 0;
-	so_long->points = 0;
-	so_long->sortie = 0;
-	so_long->invalides = 0;
-	so_long->chemin_points = 0;
-	so_long->chemin_sortie = 0;
-}
+// static void	map_init(t_jeu *so_long)
+// {
+// 	so_long->buffer = NULL;
+// 	so_long->carte = NULL;
+// 	so_long->carte_x = 0;
+// 	so_long->carte_y = 0;
+// 	so_long->joueur = 0;
+// 	so_long->points = 0;
+// 	so_long->sortie = 0;
+// 	so_long->invalides = 0;
+// 	so_long->chemin_points = 0;
+// 	so_long->chemin_sortie = 0;
+// }
 
 static void	check_args(int ac, char **av) //check 2 arguments + fichier '.ber'
 {
@@ -53,12 +53,13 @@ static void	check_args(int ac, char **av) //check 2 arguments + fichier '.ber'
 	}
 }
 
-int	main(int ac, char **av) //fonction so_long
+int	main(int ac, char **av)
 {
 	t_jeu	so_long;
 
 	check_args(ac, av);
-	map_init(&so_long);
+	ft_bzero(&so_long, sizeof(t_jeu));
+	// map_init(&so_long);
 	valider_carte(av, &so_long);
 	fenetre(&so_long);
 	mlx_loop(so_long.mlx);

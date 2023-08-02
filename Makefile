@@ -1,3 +1,4 @@
+# .SUFFIXES	:
 NAME = so_long
 PRINTF = Printf/libftprintf.a
 LIBFT = Libft/libft.a
@@ -12,9 +13,9 @@ FLAGS = -Wall -Werror -Wextra -g3
 RM = rm -f 
 
 ${NAME}: ${OBJ}
-	@make -C Printf 
-	@make -C Libft
-	@make -C mlx_linux
+	make -C Printf 
+	make -C Libft
+	make -C mlx_linux
 	${CC} ${FLAGS} ${OBJ} -I Inc ${PRINTF} ${LIBFT} ${MLX} -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o ${NAME}
 
 
