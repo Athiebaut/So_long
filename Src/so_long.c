@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:55:36 by athiebau          #+#    #+#             */
-/*   Updated: 2023/08/29 16:27:43 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:47:28 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	window(t_game *so_long)
 	so_long->mlx_win = mlx_new_window(so_long->mlx, so_long->pixel
 			* so_long->map_x, so_long->pixel
 			* so_long->map_y, "Advance Effect");
+	ft_printf("4\n");
 	fill_window(so_long);
 }
 
@@ -46,8 +47,12 @@ int	main(int ac, char **av)
 	t_game	so_long;
 
 	check_args(ac, av);
+	ft_printf("1\n");
 	ft_bzero(&so_long, sizeof(t_game));
+	ft_printf("2\n");
 	map_certify(av, &so_long);
+	ft_printf("3\n");
 	window(&so_long);
+	ft_printf("5\n");
 	mlx_loop(so_long.mlx);
 }

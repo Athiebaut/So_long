@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:45:06 by athiebau          #+#    #+#             */
-/*   Updated: 2023/08/29 16:29:03 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:42:51 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,5 @@ void	check_map(t_game *so_long);
 void	fill_window(t_game *so_long);
 void	place_borders(t_game *so_long);
 void	place_player(t_game *so_long);
+void	place_points(t_game *so_long);
+void	place_exit(t_game *so_long);
