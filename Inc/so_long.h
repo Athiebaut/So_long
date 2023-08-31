@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:45:06 by athiebau          #+#    #+#             */
-/*   Updated: 2023/08/31 12:24:31 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:55:55 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_game
 		
 }		t_game;
 
-void	ft_free(t_game *so_long);
+void	ft_free(t_game *so_long, int info);
 char	*get_the_map(int fd, char *map);
 size_t	count_lines(char **carte);
 
@@ -46,6 +46,9 @@ void	map_certify(char **av, t_game *so_long);
 void	check_map(t_game *so_long);
 
 void	fill_window(t_game *so_long);
+void	close_window(t_game *so_long);
+
+void	place_floor(t_game *so_long);
 void	place_borders(t_game *so_long);
 void	place_player(t_game *so_long);
 void	place_points(t_game *so_long);

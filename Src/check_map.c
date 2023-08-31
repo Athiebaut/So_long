@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 14:28:40 by athiebau          #+#    #+#             */
-/*   Updated: 2023/08/31 11:38:46 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:56:48 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	print_error(t_game *so_long)
 {
 	ft_printf("/!\\ Erreur, la carte n'est pas cernée de murs.\n");
 	ft_printf("Merci d'en construire un à l'emplacement concerné. /!\\\n");
-	ft_free(so_long);
+	ft_free(so_long, 1);
 	exit(0);
 }
 
@@ -69,22 +69,23 @@ void	check_map(t_game *so_long)
 	int		i;
 	size_t	len;
 
-	i = -1;
+	i = 0;
 	len = ft_strlen(so_long->map[0]);
 	if (so_long->invalid > 0)
 	{
 		ft_printf("/!\\ Erreur, caracteres invalides presents. /!\\\n");
-		ft_free(so_long);
+		ft_free(so_long, 1);
 		exit(0);
 	}
-	while (so_long->map[++i])
+	while (so_long->map[i])
 	{
 		if (ft_strlen(so_long->map[i]) != len)
 		{
 			ft_printf("/!\\ Erreur, la carte n'est pas rectangulaire. /!\\\n");
-			ft_free(so_long);
+			ft_free(so_long, 1);
 			exit(0);
 		}
+		i++;
 	}
 	check_x_borders(so_long);
 	check_y_borders(so_long);
