@@ -6,12 +6,27 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:10:46 by athiebau          #+#    #+#             */
-/*   Updated: 2023/08/29 16:51:02 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/08/31 13:03:29 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/so_long.h"
 #include <fcntl.h>
+
+/*void	get_position(t_game *so_long)
+{
+	while (so_long->map[so_long->p_y][so_long->p_x] != 'P')
+	{
+		if (so_long->p_x == so_long->map_x)
+		{
+			so_long->p_x = 0;
+			so_long->p_y++;
+		}
+		so_long->p_x++;
+	}
+	
+	
+}*/
 
 static void	check_characters(char *map, t_game *so_long)
 {
@@ -34,8 +49,8 @@ static void	check_characters(char *map, t_game *so_long)
 	}
 	if (so_long->player != 1 || so_long->exit != 1 || so_long->points < 1)
 	{
-		ft_printf("Error, nombre de joueur, sortie ");
-		ft_printf("ou collectibles incorrect.\n");
+		ft_printf("/!\\ Erreur, nombre de joueur, sortie ");
+		ft_printf("ou collectibles incorrect. /!\\\n");
 		free(map);
 		exit(0);
 	}
@@ -47,14 +62,14 @@ static void	path_certify(int y, int x, t_game *so_long)
 		so_long->path_points++;
 	if (y < 0 || y >= so_long->map_y || x < 0 || x >= so_long->map_x
 		|| so_long->map[y][x] == '1' || so_long->map[y][x] == 'E')
+	{
+		if (so_long->map[y][x] == 'E')
 		{
-			if (so_long->map[y][x] == 'E')
-			{
-				so_long->path_exit++;
-				so_long->map[y][x] = '1';
-			}
-			return ;
+			so_long->path_exit++;
+			so_long->map[y][x] = '1';
 		}
+		return ;
+	}
 	so_long->map[y][x] = '1';
 	path_certify(y, (x - 1), so_long);
 	path_certify(y, (x + 1), so_long);
@@ -82,7 +97,7 @@ static void	check_path(t_game *so_long)
 				}
 				else
 				{
-					ft_printf("Error, le chemin n'est pas valide.\n");
+					ft_printf("/!\\ Erreur, le chemin n'est pas valide. /!\\\n");
 					ft_free(so_long);
 					exit(0);
 				}
@@ -98,7 +113,7 @@ void	map_certify(char **av, t_game *so_long)
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
-		ft_printf("Error, impossible de lire le fichier.\n");
+		ft_printf("/!\\ Erreur, impossible de lire le fichier. /!\\\n");
 		exit (1);
 	}
 	so_long->buffer = get_the_map(fd, so_long->buffer);
@@ -110,5 +125,6 @@ void	map_certify(char **av, t_game *so_long)
 	check_path(so_long);
 	so_long->map = ft_split(so_long->buffer, '\n');
 	free(so_long->buffer);
+	//get_position(so_long);
 	close(fd);
 }

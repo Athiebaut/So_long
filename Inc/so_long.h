@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:45:06 by athiebau          #+#    #+#             */
-/*   Updated: 2023/08/30 22:42:51 by alix             ###   ########.fr       */
+/*   Updated: 2023/08/31 12:24:31 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ typedef struct s_game
 		int	map_x;
 		int	map_y;
 		int	player;
+		int	p_x;
+		int	p_y;
+		int	p_moove;
 		int	points;
 		int	exit;
 		int	invalid;
@@ -47,3 +50,5 @@ void	place_borders(t_game *so_long);
 void	place_player(t_game *so_long);
 void	place_points(t_game *so_long);
 void	place_exit(t_game *so_long);
+
+int	key_hook(int keycode, t_game *so_long);

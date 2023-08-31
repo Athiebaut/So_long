@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 11:29:41 by athiebau          #+#    #+#             */
-/*   Updated: 2023/08/29 16:36:44 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/08/31 12:15:37 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,17 @@ char	*get_the_map(int fd, char *map)
 	int		reads;
 	char	buffer[1024];
 
-	//buffer = (char *)malloc(sizeof(char) * 11);
-	if (!buffer)
-		return (NULL);
 	reads = 1;
 	while (reads > 0)
 	{
 		reads = read(fd, buffer, 1024);
 		if (reads == -1)
 		{
-			//free(buffer);
-			return (NULL);
+			ft_printf ("/!\\ Erreur, lecture de la map impossible. /!\\\n");
+			exit(1);
 		}
 		buffer[reads] = '\0';
 		map = ft_strjoin(map, buffer);
 	}
-	//free(buffer);
 	return (map);
 }

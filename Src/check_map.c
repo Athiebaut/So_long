@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 14:28:40 by athiebau          #+#    #+#             */
-/*   Updated: 2023/08/29 16:26:37 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:38:46 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	check_map(t_game *so_long)
 	len = ft_strlen(so_long->map[0]);
 	if (so_long->invalid > 0)
 	{
-		ft_printf("Error, caracteres invalides presents.\n");
+		ft_printf("/!\\ Erreur, caracteres invalides presents. /!\\\n");
 		ft_free(so_long);
 		exit(0);
 	}
@@ -81,7 +81,7 @@ void	check_map(t_game *so_long)
 	{
 		if (ft_strlen(so_long->map[i]) != len)
 		{
-			ft_printf("Error, la carte n'est pas rectangulaire.\n");
+			ft_printf("/!\\ Erreur, la carte n'est pas rectangulaire. /!\\\n");
 			ft_free(so_long);
 			exit(0);
 		}
