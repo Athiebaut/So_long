@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 12:50:17 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/04 14:43:24 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:02:00 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	place_floor(t_game *so_long)
 	{
 		ft_printf("/!\\ Erreur, lecture d'image impossible. /!\\\n");
 		ft_free(so_long, 4);
-		exit (1);	
+		exit (1);
 	}
 	mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->file,
 		so_long->pixel * so_long->x, so_long->pixel * so_long->y);
@@ -38,7 +38,7 @@ void	place_borders(t_game *so_long)
 	{
 		ft_printf("/!\\ Erreur, lecture d'image impossible. /!\\\n");
 		ft_free(so_long, 4);
-		exit (1);	
+		exit (1);
 	}
 	mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->file,
 		so_long->pixel * so_long->x, so_long->pixel * so_long->y);
@@ -56,7 +56,7 @@ void	place_player(t_game *so_long)
 	{
 		ft_printf("/!\\ Erreur, lecture d'image impossible. /!\\\n");
 		ft_free(so_long, 4);
-		exit (1);	
+		exit (1);
 	}
 	mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->file,
 		so_long->pixel * so_long->x, so_long->pixel * so_long->y);
@@ -72,7 +72,7 @@ void	place_points(t_game *so_long)
 	{
 		ft_printf("/!\\ Erreur, lecture d'image impossible. /!\\\n");
 		ft_free(so_long, 4);
-		exit (1);	
+		exit (1);
 	}
 	mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->file,
 		so_long->pixel * so_long->x, so_long->pixel * so_long->y);
@@ -88,7 +88,7 @@ void	place_exit(t_game *so_long)
 	{
 		ft_printf("/!\\ Erreur, lecture d'image impossible. /!\\\n");
 		ft_free(so_long, 4);
-		exit (1);	
+		exit (1);
 	}
 	mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->file,
 		so_long->pixel * so_long->x, so_long->pixel * so_long->y);
