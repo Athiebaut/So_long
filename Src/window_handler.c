@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 14:05:11 by alix              #+#    #+#             */
-/*   Updated: 2023/09/04 16:16:04 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:29:44 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	fill_window(t_game *so_long)
 				place_points(so_long);
 			if (so_long->map[so_long->y][so_long->x] == 'E')
 				place_exit(so_long);
+			if (so_long->map[so_long->y][so_long->x] == 'A')
+				place_enemy(so_long);
 			so_long->x++;
 		}
 		so_long->y++;

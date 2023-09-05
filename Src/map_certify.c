@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:10:46 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/04 12:21:59 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:12:29 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	check_characters(char *map, t_game *so_long)
 			so_long->exit++;
 		else if (map[i] == '\n')
 			i++;
-		else if (map[i] != '1' && map[i] != '0' && map[i] != '\n')
+		else if (map[i] != '1' && map[i] != '0' && map[i] != '\n' && map[i] != 'A')
 			so_long->invalid++;
 		i++;
 	}
@@ -46,7 +46,7 @@ static void	path_certify(int y, int x, t_game *so_long)
 	if (so_long->map[y][x] == 'C')
 		so_long->path_points++;
 	if (y < 0 || y >= so_long->map_y || x < 0 || x >= so_long->map_x
-		|| so_long->map[y][x] == '1' || so_long->map[y][x] == 'E')
+		|| so_long->map[y][x] == '1' || so_long->map[y][x] == 'E' || so_long->map[y][x] == 'A')
 	{
 		if (so_long->map[y][x] == 'E')
 		{

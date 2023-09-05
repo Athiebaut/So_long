@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:45:06 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/04 16:30:33 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:32:19 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ typedef struct s_game
 	int		player;
 	int		p_x;
 	int		p_y;
+	int		enemy;
+	int		e_x;
+	int		e_y;
 	int		p_moove;
 	int		points;
 	int		exit;
@@ -60,5 +63,7 @@ void		place_exit(t_game *so_long);
 int			key_hook(int keycode, t_game *so_long);
 
 void		print_movements(t_game *so_long);
+
+void		place_enemy(t_game *so_long);
 
 #endif
