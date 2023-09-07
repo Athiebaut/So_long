@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 14:28:40 by athiebau          #+#    #+#             */
-/*   Updated: 2023/08/31 16:56:48 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:45:10 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Inc/so_long.h"
+#include "../Inc/so_long_bonus.h"
 
 static void	print_error(t_game *so_long)
 {

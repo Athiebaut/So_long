@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:55:36 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/04 14:32:59 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/07 15:02:48 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Inc/so_long.h"
+#include "../Inc/so_long_bonus.h"
 
 static void	window(t_game *so_long)
 {
@@ -21,14 +21,18 @@ static void	window(t_game *so_long)
 		ft_free(so_long, 0);
 		exit(1);
 	}
-	so_long->mlx_win = mlx_new_window(so_long->mlx, so_long->pixel
-			* so_long->map_x, so_long->pixel
+	so_long->mlx_win = mlx_new_window(so_long->mlx, (so_long->pixel
+			* so_long->map_x) + 100, so_long->pixel
 			* so_long->map_y, "Advance Effect");
 	if (!so_long->mlx_win)
 	{
 		ft_free(so_long, 2);
 		exit(1);
 	}
+	so_long->enemy_file = "./Img/enemy1.xpm";
+	so_long->player_file = "./Img/player1.xpm";
+	so_long->points_file = "./Img/coin1.xpm";
+	so_long->exit_file ="./Img/exit1.xpm";
 	fill_window(so_long);
 }
 
@@ -61,6 +65,7 @@ int	main(int ac, char **av)
 	window(&so_long);
 	mlx_hook(so_long.mlx_win, 2, 1L << 0, key_hook, &so_long);
 	mlx_hook(so_long.mlx_win, 17, 0, close_window, &so_long);
+	mlx_loop_hook(so_long.mlx, frames, &so_long);
 	mlx_loop(so_long.mlx);
 	ft_free(&so_long, 3);
 }

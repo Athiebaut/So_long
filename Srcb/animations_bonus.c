@@ -1,69 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animations.c                                       :+:      :+:    :+:   */
+/*   animations_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:37:29 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/06 13:52:43 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:52:19 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Inc/so_long.h"
-
-static void	update_map(t_game *so_long)
-{
-	so_long->y = 0;
-	while ((so_long->y) < (so_long->map_y))
-	{
-		so_long->x = 0;
-		while ((so_long->x) < (so_long->map_x))
-		{
-			if (so_long->map[so_long->y][so_long->x] == 'A')
-				place_enemy(so_long);
-			if (so_long->map[so_long->y][so_long->x] == 'P')	
-				place_player(so_long);
-			if (so_long->map[so_long->y][so_long->x] == 'C')	
-				place_points(so_long);
-			so_long->x++;
-		}
-		so_long->y++;
-	}
-	so_long->x = 0;
-	so_long->y = 0;
-}
+#include "../Inc/so_long_bonus.h"
 
 int	frames(t_game *so_long)
 {
 	static int	i;
 
-	i = 0;
-	if (i < 30)
+	if (i < 3)
 		so_long->points_file = "./Img/coin1.xpm";
-	if (i < 40)
+	if (i < 4)
 	{
 		so_long->enemy_file = "./Img/enemy1.xpm";
 		so_long->player_file = "./Img/player1.xpm";
 	}
-	if (i > 30 && i < 60)
+	if (i > 3 && i < 6)
 		so_long->points_file = "./Img/coin2.xpm";
-	if (i > 40 && i < 80)
+	if (i > 4 && i < 8)
 	{
 		so_long->enemy_file = "./Img/enemy2.xpm";
 		so_long->player_file = "./Img/player2.xpm";
 	}
-	if (i > 60)
+	if (i > 6)
 		so_long->points_file = "./Img/coin3.xpm";
-	if (i > 80)
+	if (i > 8)
 	{
 		so_long->enemy_file = "./Img/enemy3.xpm";
 		so_long->player_file = "./Img/player3.xpm";
 		so_long->points_file = "./Img/coin4.xpm";
 	}
-	if (i == 120)
+	if (i == 12)
 		i = 0;
-	update_map(so_long);
+	fill_window(so_long);
 	i++;
 	return 0;
 }
+
+/*void	door_animation(t_game *so_long)
+{
+	int	i;
+
+	i = 0;
+	while (i < 10)
+	{
+		if (i < 2)
+		so_long->exit_file = "./Img/exit2.xpm";
+		if (i > 2 && i < 4)
+		so_long->exit_file = "./Img/exit3.xpm";
+		if (i > 4)
+		so_long->exit_file = "./Img/exit4.xpm";
+		fill_window(so_long);
+		i++;
+	}
+}*/

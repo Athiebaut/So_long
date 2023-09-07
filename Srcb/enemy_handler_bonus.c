@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemy_handler.c                                    :+:      :+:    :+:   */
+/*   enemy_handler_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:30:25 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/06 12:00:05 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:45:14 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Inc/so_long.h"
+#include "../Inc/so_long_bonus.h"
 
 void	place_enemy(t_game *so_long)
 {

@@ -6,16 +6,17 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:03:10 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/04 18:03:13 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:30:32 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../Libft/libft.h"
 # include "../Printf/ft_printf.h"
 # include "../mlx_linux/mlx.h"
+# include "../mlx_linux/mlx_int.h"
 
 typedef struct s_game
 {
@@ -27,11 +28,18 @@ typedef struct s_game
 	int		map_x;
 	int		map_y;
 	int		player;
+	char	*player_file;
 	int		p_x;
 	int		p_y;
 	int		p_moove;
+	int		enemy;
+	char	*enemy_file;
+	int		e_x;
+	int		e_y;
 	int		points;
+	char	*points_file;
 	int		exit;
+	char	*exit_file;
 	int		invalid;
 	int		x;
 	int		y;
@@ -40,6 +48,7 @@ typedef struct s_game
 	int		pixel;
 
 }			t_game;
+
 
 void		ft_free(t_game *so_long, int info);
 char		*get_the_map(int fd, char *map);
@@ -60,5 +69,9 @@ void		place_exit(t_game *so_long);
 int			key_hook(int keycode, t_game *so_long);
 
 void		print_movements(t_game *so_long);
+
+void		place_enemy(t_game *so_long);
+
+int			frames(t_game *so_long);
 
 #endif

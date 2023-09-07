@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   so_long_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 11:29:41 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/04 15:21:30 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:45:40 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Inc/so_long.h"
+#include "../Inc/so_long_bonus.h"
 
 void	ft_free(t_game *so_long, int info)
 {
