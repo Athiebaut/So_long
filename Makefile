@@ -21,8 +21,8 @@ SRC_FILESB = so_long_bonus.c \
 		window_handler_bonus.c \
 		fill_window_bonus.c \
 		key_hook_bonus.c \
-		enemy_handler_bonus.c \
-		animations_bonus.c
+		enemy_handler.c \
+		bonus.c
 		
 SRC = ${addprefix Src/, ${SRC_FILES}}
 SRCB = ${addprefix Srcb/, ${SRC_FILESB}}

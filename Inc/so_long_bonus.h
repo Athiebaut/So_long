@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:03:10 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/07 14:30:32 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:32:10 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ int			key_hook(int keycode, t_game *so_long);
 void		print_movements(t_game *so_long);
 
 void		place_enemy(t_game *so_long);
+void		place_patrol(t_game *so_long);
+void		enemies_movements(t_game *so_long);
 
 int			frames(t_game *so_long);
-
+int			exit_opening(t_game *so_long);
 #endif

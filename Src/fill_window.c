@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 12:50:17 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/07 14:34:47 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:22:59 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	place_exit(t_game *so_long)
 {
 	if (so_long->file)
 		mlx_destroy_image(so_long->mlx, so_long->file);
-	so_long->file = mlx_xpm_file_to_image(so_long->mlx, so_long->exit_file,
+	so_long->file = mlx_xpm_file_to_image(so_long->mlx, "./Img/exit1.xpm",
 			&so_long->pixel, &so_long->pixel);
 	if (!so_long->file)
 	{

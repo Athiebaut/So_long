@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 14:05:11 by alix              #+#    #+#             */
-/*   Updated: 2023/09/07 14:49:15 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:03:03 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	fill_window(t_game *so_long)
 			if (so_long->map[so_long->y][so_long->x] == 'E')
 				place_exit(so_long);
 			if (so_long->map[so_long->y][so_long->x] == 'A')
+				place_patrol(so_long);
+			if (so_long->map[so_long->y][so_long->x] == 'X')
 				place_enemy(so_long);
 			so_long->x++;
 		}
