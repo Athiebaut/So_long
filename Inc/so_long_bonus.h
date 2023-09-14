@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:03:10 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/13 15:32:10 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:38:31 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ typedef struct s_game
 
 }			t_game;
 
-
 void		ft_free(t_game *so_long, int info);
 char		*get_the_map(int fd, char *map);
 size_t		count_lines(char **carte);
@@ -70,10 +69,13 @@ int			key_hook(int keycode, t_game *so_long);
 
 void		print_movements(t_game *so_long);
 
+void		enemy_0(t_game *so_long);
+void		enemy_1(t_game *so_long);
+
 void		place_enemy(t_game *so_long);
 void		place_patrol(t_game *so_long);
 void		enemies_movements(t_game *so_long);
 
 int			frames(t_game *so_long);
-int			exit_opening(t_game *so_long);
+void		exit_opening(t_game *so_long);
 #endif

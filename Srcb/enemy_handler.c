@@ -6,39 +6,53 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:02:58 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/13 15:10:25 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:37:55 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/so_long_bonus.h"
 
+int static	calculate_moove(t_game *so_long, int enemy_status)
+{
+	int	x;
+	int	y;
+
+	x = so_long->e_x;
+	y = so_long->e_y;
+	if ((enemy_status == 0) && ((so_long->map[y][x + 1] != '1')
+		&& (so_long->map[y][x + 1] != 'X') && (so_long->map[y][x + 1] != 'E')
+		&& (so_long->map[y][x + 1] != 'C')))
+		enemy_status = 0;
+	else if ((enemy_status == 0) && ((so_long->map[y][x + 1] != '1')
+		|| (so_long->map[y][x + 1] != 'X') || (so_long->map[y][x + 1] != 'E')
+		|| (so_long->map[y][x + 1] != 'C')))
+		enemy_status = 1;
+	else if ((enemy_status == 1) && ((so_long->map[y][x - 1] != '1')
+		&& (so_long->map[y][x - 1] != 'X') && (so_long->map[y][x - 1] != 'E')
+		&& (so_long->map[y][x - 1] != 'C')))
+		enemy_status = 1;
+	else if ((enemy_status == 1) && ((so_long->map[y][x - 1] != '1')
+		|| (so_long->map[y][x - 1] != 'X') || (so_long->map[y][x - 1] != 'E')
+		|| (so_long->map[y][x - 1] != 'C')))
+		enemy_status = 0;
+	return (enemy_status);
+}
+
 void	enemies_movements(t_game *so_long)
 {
 	static int	enemy_status;
+	int			x;
+	int			y;
 
-	if ((so_long->map[so_long->e_y][so_long->e_x - 1] == 'P') || (so_long->map[so_long->e_y][so_long->e_x + 1] == 'P'))
-	{
-		ft_printf("YOU LOSE. Try again ?\n");
-		close_window(so_long);
-	}
-	if ((enemy_status == 0) && ((so_long->map[so_long->e_y][so_long->e_x + 1] != '1') && (so_long->map[so_long->e_y][so_long->e_x + 1] != 'X')))
-		enemy_status = 0;
-	else if ((enemy_status == 0) && ((so_long->map[so_long->e_y][so_long->e_x + 1] == '1') || (so_long->map[so_long->e_y][so_long->e_x + 1] == 'X')))
-		enemy_status = 1;
-	else if ((enemy_status == 1) && ((so_long->map[so_long->e_y][so_long->e_x - 1] != '1') && (so_long->map[so_long->e_y][so_long->e_x - 1] != 'X')))
-		enemy_status = 1;
-	else if ((enemy_status == 1) && ((so_long->map[so_long->e_y][so_long->e_x - 1] == '1') || (so_long->map[so_long->e_y][so_long->e_x - 1] == 'X')))
-		enemy_status = 0;
+	x = so_long->e_x;
+	y = so_long->e_y;
+	if ((so_long->map[y][x - 1] == 'P') || (so_long->map[y][x + 1] == 'P'))
+		(ft_printf("YOU LOSE. Try again ?\n"), close_window(so_long));
+	enemy_status = calculate_moove(so_long, enemy_status);
 	if (enemy_status == 0)
-	{
-		so_long->map[so_long->e_y][so_long->e_x] = '0';
-		so_long->map[so_long->e_y][so_long->e_x + 1] = 'A';
-	}
+		enemy_0(so_long);
 	else if (enemy_status == 1)
-	{
-		so_long->map[so_long->e_y][so_long->e_x] = '0';
-		so_long->map[so_long->e_y][so_long->e_x - 1] = 'A';
-	}
+		enemy_1(so_long);
 	fill_window(so_long);
 }
 

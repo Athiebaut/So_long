@@ -6,11 +6,23 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 11:29:41 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/07 13:45:40 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:38:09 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/so_long_bonus.h"
+
+void	enemy_0(t_game *so_long)
+{
+	so_long->map[so_long->e_y][so_long->e_x] = '0';
+	so_long->map[so_long->e_y][so_long->e_x + 1] = 'A';
+}
+
+void	enemy_1(t_game *so_long)
+{
+	so_long->map[so_long->e_y][so_long->e_x] = '0';
+	so_long->map[so_long->e_y][so_long->e_x - 1] = 'A';
+}
 
 void	ft_free(t_game *so_long, int info)
 {

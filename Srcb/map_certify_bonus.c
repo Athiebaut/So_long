@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:10:46 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/13 13:55:24 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:22:29 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static void	check_characters(char *map, t_game *so_long)
 			so_long->exit++;
 		else if (map[i] == '\n')
 			i++;
-		else if (map[i] != '1' && map[i] != '0' && map[i] != '\n' && map[i] != 'A' && map[i] != 'X')
+		else if (map[i] != '1' && map[i] != '0' && map[i] != '\n'
+			&& map[i] != 'A' && map[i] != 'X')
 			so_long->invalid++;
 		i++;
 	}

@@ -6,16 +6,16 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:37:29 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/13 15:29:32 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:35:29 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/so_long_bonus.h"
 
-int	exit_opening(t_game *so_long)
+void	exit_opening(t_game *so_long)
 {
-	int	static exit;
-	int	static i;
+	int static	exit;
+	int static	i;
 
 	if (exit == 0)
 	{
@@ -30,33 +30,37 @@ int	exit_opening(t_game *so_long)
 		if (i == 12)
 			exit = 1;
 		i++;
-		return 0;
 	}
 	else
 		so_long->exit_file = "./Img/exit4.xpm";
-		return 0; 	 
+}
+
+void static	step_4(t_game *so_long)
+{
+	so_long->enemy_file = "./Img/enemy1.xpm";
+	so_long->player_file = "./Img/player1.xpm";
+	enemies_movements(so_long);
+}
+
+void static	step_4_8(t_game *so_long)
+{
+	so_long->enemy_file = "./Img/enemy2.xpm";
+	so_long->player_file = "./Img/player2.xpm";
+	enemies_movements(so_long);
 }
 
 int	frames(t_game *so_long)
 {
 	static int	i;
-	
+
 	if (i < 3)
 		so_long->points_file = "./Img/coin1.xpm";
 	if (i < 4)
-	{
-		so_long->enemy_file = "./Img/enemy1.xpm";
-		so_long->player_file = "./Img/player1.xpm";
-		enemies_movements(so_long);
-	}
+		step_4(so_long);
 	if (i >= 3 && i < 6)
 		so_long->points_file = "./Img/coin2.xpm";
 	if (i >= 4 && i < 8)
-	{
-		so_long->enemy_file = "./Img/enemy2.xpm";
-		so_long->player_file = "./Img/player2.xpm";
-		enemies_movements(so_long);
-	}
+		step_4_8(so_long);
 	if (i >= 6 && i < 9)
 		so_long->points_file = "./Img/coin3.xpm";
 	if (i >= 8)
@@ -70,13 +74,13 @@ int	frames(t_game *so_long)
 	if (i == 12)
 		i = 0;
 	i++;
-	return 0;
+	return (0);
 }
 
 void	print_movements(t_game *so_long)
 {
 	char	*str;
-	
+
 	str = ft_itoa(so_long->p_moove - 1);
 	if (!str)
 		ft_free(so_long, 3);

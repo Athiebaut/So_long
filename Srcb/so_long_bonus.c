@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:55:36 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/13 12:18:51 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:23:32 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	window(t_game *so_long)
 		exit(1);
 	}
 	so_long->mlx_win = mlx_new_window(so_long->mlx, (so_long->pixel
-			* so_long->map_x) + 100, so_long->pixel
+				* so_long->map_x) + 100, so_long->pixel
 			* so_long->map_y, "Advance Effect");
 	if (!so_long->mlx_win)
 	{
@@ -66,8 +66,6 @@ int	main(int ac, char **av)
 	mlx_loop_hook(so_long.mlx, frames, &so_long);
 	mlx_hook(so_long.mlx_win, 2, 1L << 0, key_hook, &so_long);
 	mlx_hook(so_long.mlx_win, 17, 0, close_window, &so_long);
-	//mlx_loop_hook(so_long.mlx, frames, &so_long);
-	//mlx_loop_hook(so_long.mlx, enemies_movements, &so_long);
 	mlx_loop(so_long.mlx);
 	ft_free(&so_long, 3);
 }

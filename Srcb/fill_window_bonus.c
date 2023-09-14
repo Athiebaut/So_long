@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 12:50:17 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/13 15:24:33 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:22:54 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	place_exit(t_game *so_long)
 {
 	if (so_long->points != 0)
 		so_long->exit_file = "./Img/exit1.xpm";
-	else 
+	else
 		exit_opening(so_long);
 	if (so_long->file)
 		mlx_destroy_image(so_long->mlx, so_long->file);

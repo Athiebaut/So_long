@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 11:32:35 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/13 14:00:23 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:35:02 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 void	up(t_game *so_long)
 {
 	so_long->p_moove++;
-	if (so_long->map[so_long->p_y - 1][so_long->p_x] == 'E')
+	if (so_long->map[so_long->p_y - 1][so_long->p_x] == 'E'
+		&& so_long->points == 0)
 	{
 		ft_printf("GG YOU WIN !\n");
 		close_window(so_long);
 	}
-	if (so_long->map[so_long->p_y - 1][so_long->p_x] == 'A' || so_long->map[so_long->p_y - 1][so_long->p_x] == 'X')
+	if (so_long->map[so_long->p_y - 1][so_long->p_x] == 'A'
+		|| so_long->map[so_long->p_y - 1][so_long->p_x] == 'X')
 	{
 		ft_printf("YOU LOSE. Try again ?\n");
 		close_window(so_long);
@@ -29,7 +31,6 @@ void	up(t_game *so_long)
 		so_long->points--;
 	so_long->map[so_long->p_y][so_long->p_x] = '0';
 	so_long->map[so_long->p_y - 1][so_long->p_x] = 'P';
-	//fill_window(so_long);
 }
 
 void	down(t_game *so_long)
@@ -40,7 +41,8 @@ void	down(t_game *so_long)
 		ft_printf("GG YOU WIN !\n");
 		close_window(so_long);
 	}
-	if (so_long->map[so_long->p_y + 1][so_long->p_x] == 'A' || so_long->map[so_long->p_y + 1][so_long->p_x] == 'X')
+	if (so_long->map[so_long->p_y + 1][so_long->p_x] == 'A'
+		|| so_long->map[so_long->p_y + 1][so_long->p_x] == 'X')
 	{
 		ft_printf("YOU LOSE. Try again ?\n");
 		close_window(so_long);
@@ -49,7 +51,6 @@ void	down(t_game *so_long)
 		so_long->points--;
 	so_long->map[so_long->p_y][so_long->p_x] = '0';
 	so_long->map[so_long->p_y + 1][so_long->p_x] = 'P';
-	//fill_window(so_long);
 }
 
 void	right(t_game *so_long)
@@ -60,7 +61,8 @@ void	right(t_game *so_long)
 		ft_printf("GG YOU WIN !\n");
 		close_window(so_long);
 	}
-	if (so_long->map[so_long->p_y][so_long->p_x + 1] == 'A' || so_long->map[so_long->p_y][so_long->p_x + 1] == 'X')
+	if (so_long->map[so_long->p_y][so_long->p_x + 1] == 'A'
+		|| so_long->map[so_long->p_y][so_long->p_x + 1] == 'X')
 	{
 		ft_printf("YOU LOSE. Try again ?\n");
 		close_window(so_long);
@@ -69,7 +71,6 @@ void	right(t_game *so_long)
 		so_long->points--;
 	so_long->map[so_long->p_y][so_long->p_x] = '0';
 	so_long->map[so_long->p_y][so_long->p_x + 1] = 'P';
-	//fill_window(so_long);
 }
 
 void	left(t_game *so_long)
@@ -80,7 +81,8 @@ void	left(t_game *so_long)
 		ft_printf("GG YOU WIN !\n");
 		close_window(so_long);
 	}
-	if (so_long->map[so_long->p_y][so_long->p_x - 1] == 'A' || so_long->map[so_long->p_y][so_long->p_x - 1] == 'X')
+	if (so_long->map[so_long->p_y][so_long->p_x - 1] == 'A'
+		|| so_long->map[so_long->p_y][so_long->p_x - 1] == 'X')
 	{
 		ft_printf("YOU LOSE. Try again ?\n");
 		close_window(so_long);
@@ -89,7 +91,6 @@ void	left(t_game *so_long)
 		so_long->points--;
 	so_long->map[so_long->p_y][so_long->p_x] = '0';
 	so_long->map[so_long->p_y][so_long->p_x - 1] = 'P';
-	//fill_window(so_long);
 }
 
 int	key_hook(int keycode, t_game *so_long)
