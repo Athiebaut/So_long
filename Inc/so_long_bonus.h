@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:03:10 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/14 13:38:31 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:35:35 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_game
 	int		p_x;
 	int		p_y;
 	int		p_moove;
-	int		enemy;
+	int		en;
 	char	*enemy_file;
 	int		e_x;
 	int		e_y;

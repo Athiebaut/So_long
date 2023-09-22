@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:02:58 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/22 12:28:00 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:37:18 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ void	enemies_movements(t_game *so_long)
 	static int	enemy_status;
 	int			x;
 	int			y;
-	if (so_long->enemy > 0)
+
+	if (so_long->en > 0)
 	{
 		x = so_long->e_x;
 		y = so_long->e_y;
-		if (so_long->enemy > 0 && (so_long->map[y][x - 1] == 'P') || (so_long->map[y][x + 1] == 'P'))
+		if (so_long->en > 0 && (so_long->map[y][x - 1] == 'P')
+			|| (so_long->map[y][x + 1] == 'P'))
 			(ft_printf("YOU LOSE. Try again ?\n"), close_window(so_long));
 		enemy_status = calculate_moove(so_long, enemy_status);
 		if (enemy_status == 0)
@@ -64,7 +66,7 @@ void	place_patrol(t_game *so_long)
 		mlx_destroy_image(so_long->mlx, so_long->file);
 	so_long->e_x = so_long->x;
 	so_long->e_y = so_long->y;
-	so_long->file = mlx_xpm_file_to_image(so_long->mlx, so_long->enemy_file,
+	so_long->file = mlx_xpm_file_to_image(so_long->mlx, so_long->en_file,
 			&so_long->pixel, &so_long->pixel);
 	if (!so_long->file)
 	{
@@ -80,7 +82,7 @@ void	place_enemy(t_game *so_long)
 {
 	if (so_long->file)
 		mlx_destroy_image(so_long->mlx, so_long->file);
-	so_long->file = mlx_xpm_file_to_image(so_long->mlx, so_long->enemy_file,
+	so_long->file = mlx_xpm_file_to_image(so_long->mlx, so_long->en_file,
 			&so_long->pixel, &so_long->pixel);
 	if (!so_long->file)
 	{

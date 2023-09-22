@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:55:36 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/14 12:23:32 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:36:00 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	window(t_game *so_long)
 		ft_free(so_long, 2);
 		exit(1);
 	}
-	so_long->enemy_file = "./Img/enemy1.xpm";
+	so_long->en_file = "./Img/enemy1.xpm";
 	so_long->player_file = "./Img/player1.xpm";
 	so_long->points_file = "./Img/coin1.xpm";
 	so_long->exit_file = "./Img/exit1.xpm";
