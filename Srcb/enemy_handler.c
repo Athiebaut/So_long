@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:02:58 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/14 13:37:55 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:28:00 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,18 @@ void	enemies_movements(t_game *so_long)
 	static int	enemy_status;
 	int			x;
 	int			y;
-
-	x = so_long->e_x;
-	y = so_long->e_y;
-	if ((so_long->map[y][x - 1] == 'P') || (so_long->map[y][x + 1] == 'P'))
-		(ft_printf("YOU LOSE. Try again ?\n"), close_window(so_long));
-	enemy_status = calculate_moove(so_long, enemy_status);
-	if (enemy_status == 0)
-		enemy_0(so_long);
-	else if (enemy_status == 1)
-		enemy_1(so_long);
+	if (so_long->enemy > 0)
+	{
+		x = so_long->e_x;
+		y = so_long->e_y;
+		if (so_long->enemy > 0 && (so_long->map[y][x - 1] == 'P') || (so_long->map[y][x + 1] == 'P'))
+			(ft_printf("YOU LOSE. Try again ?\n"), close_window(so_long));
+		enemy_status = calculate_moove(so_long, enemy_status);
+		if (enemy_status == 0)
+			enemy_0(so_long);
+		else if (enemy_status == 1)
+			enemy_1(so_long);
+	}
 	fill_window(so_long);
 }
 

@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 14:05:11 by alix              #+#    #+#             */
-/*   Updated: 2023/09/13 14:03:03 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:28:39 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ void	fill_window(t_game *so_long)
 				place_points(so_long);
 			if (so_long->map[so_long->y][so_long->x] == 'E')
 				place_exit(so_long);
-			if (so_long->map[so_long->y][so_long->x] == 'A')
+			if (so_long->map[so_long->y][so_long->x] == 'A' && so_long->enemy > 0) 
 				place_patrol(so_long);
-			if (so_long->map[so_long->y][so_long->x] == 'X')
+			if (so_long->map[so_long->y][so_long->x] == 'X' && so_long->enemy > 0)
 				place_enemy(so_long);
 			so_long->x++;
 		}
 		so_long->y++;
 	}
 	print_movements(so_long);
+	//fill_window(so_long);
 }

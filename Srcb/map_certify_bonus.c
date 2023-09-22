@@ -6,12 +6,20 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:10:46 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/14 12:22:29 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:11:51 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/so_long_bonus.h"
 #include <fcntl.h>
+
+static void 	ft_lina(t_game *so_long)
+{
+	ft_printf("/!\\ Erreur, nombre de joueur, sortie ");
+	ft_printf("ou collectibles incorrect. /!\\\n");
+	ft_free(so_long, 1);
+	exit(0);
+}
 
 static void	check_characters(char *map, t_game *so_long)
 {
@@ -20,6 +28,8 @@ static void	check_characters(char *map, t_game *so_long)
 	i = 0;
 	while (map[i])
 	{
+		if (map[i] == 'A' || map[i] == 'X')
+			so_long->enemy++;
 		if (map[i] == 'P')
 			so_long->player++;
 		else if (map[i] == 'C')
@@ -33,13 +43,10 @@ static void	check_characters(char *map, t_game *so_long)
 			so_long->invalid++;
 		i++;
 	}
+	if (!so_long->enemy)
+		so_long->enemy = -1;
 	if (so_long->player != 1 || so_long->exit != 1 || so_long->points < 1)
-	{
-		ft_printf("/!\\ Erreur, nombre de joueur, sortie ");
-		ft_printf("ou collectibles incorrect. /!\\\n");
-		ft_free(so_long, 1);
-		exit(0);
-	}
+		ft_lina(so_long);
 }
 
 static void	path_certify(int y, int x, t_game *so_long)
