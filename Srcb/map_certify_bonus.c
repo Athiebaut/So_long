@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:10:46 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/22 12:36:44 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:04:27 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,28 @@
 
 static void	ft_lina(t_game *so_long)
 {
-	ft_printf("/!\\ Erreur, nombre de joueur, sortie ");
-	ft_printf("ou collectibles incorrect. /!\\\n");
-	ft_free(so_long, 1);
-	exit(0);
+	if (!so_long->en)
+		so_long->en = -1;
+	if (so_long->player != 1 || so_long->exit != 1 || so_long->points < 1)
+	{
+		ft_printf("/!\\ Erreur, nombre de joueur, sortie ");
+		ft_printf("ou collectibles incorrect. /!\\\n");
+		ft_free(so_long, 1);
+		exit(0);
+	}
 }
 
 static void	check_characters(char *map, t_game *so_long)
 {
 	int	i;
 
-	i = 0;
-	while (map[i])
+	i = -1;
+	while (map[++i])
 	{
+		if (map[i] == '\n' && ((map[i + 1] == '\n') || (!map[i + 1])))
+			so_long->invalid++;
+		if (map[i] == 'A')
+			so_long->pat++;
 		if (map[i] == 'A' || map[i] == 'X')
 			so_long->en++;
 		if (map[i] == 'P')
@@ -36,17 +45,13 @@ static void	check_characters(char *map, t_game *so_long)
 			so_long->points++;
 		else if (map[i] == 'E')
 			so_long->exit++;
-		else if (map[i] == '\n')
+		else if (map[i] == '\n' && map[i + 1])
 			i++;
 		else if (map[i] != '1' && map[i] != '0' && map[i] != '\n'
-			&& map[i] != 'A' && map[i] != 'X')
+			&& (map[i] != 'A' && map[i] != 'X') || map[0] == '\n')
 			so_long->invalid++;
-		i++;
 	}
-	if (!so_long->en)
-		so_long->en = -1;
-	if (so_long->player != 1 || so_long->exit != 1 || so_long->points < 1)
-		ft_lina(so_long);
+	ft_lina(so_long);
 }
 
 static void	path_certify(int y, int x, t_game *so_long)
@@ -65,6 +70,12 @@ static void	path_certify(int y, int x, t_game *so_long)
 		return ;
 	}
 	so_long->map[y][x] = '1';
+
+	/*for(int i = 0; i < 7 ; i++)
+	{
+		ft_printf("%s\n", so_long->map[i]);
+	}
+	ft_printf("==============\n");*/
 	path_certify(y, (x - 1), so_long);
 	path_certify(y, (x + 1), so_long);
 	path_certify((y - 1), x, so_long);
@@ -82,6 +93,10 @@ static void	check_path(t_game *so_long)
 			if (so_long->map[so_long->y][so_long->x] == 'P')
 			{
 				path_certify(so_long->y, so_long->x, so_long);
+				/*ft_printf("pexit : %d\n", so_long->path_exit);
+				ft_printf("ppoints : %d\n", so_long->path_points);
+				ft_printf("exit : %d\n", so_long->exit);
+				ft_printf("points : %d\n", so_long->points);*/
 				if (so_long->path_points == so_long->points
 					&& so_long->path_exit == so_long->exit)
 				{

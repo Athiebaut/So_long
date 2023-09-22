@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:37:29 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/22 12:36:00 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:07:37 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ void	exit_opening(t_game *so_long)
 
 void static	step_4(t_game *so_long)
 {
-	so_long->en_file = "./Img/enemy1.xpm";
+	so_long->enemy_file = "./Img/enemy1.xpm";
 	so_long->player_file = "./Img/player1.xpm";
 	enemies_movements(so_long);
 }
 
 void static	step_4_8(t_game *so_long)
 {
-	so_long->en_file = "./Img/enemy2.xpm";
+	so_long->enemy_file = "./Img/enemy2.xpm";
 	so_long->player_file = "./Img/player2.xpm";
 	enemies_movements(so_long);
 }
@@ -65,7 +65,7 @@ int	frames(t_game *so_long)
 		so_long->points_file = "./Img/coin3.xpm";
 	if (i >= 8)
 	{
-		so_long->en_file = "./Img/enemy3.xpm";
+		so_long->enemy_file = "./Img/enemy3.xpm";
 		so_long->player_file = "./Img/player3.xpm";
 		enemies_movements(so_long);
 	}
