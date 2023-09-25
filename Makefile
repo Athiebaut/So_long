@@ -29,7 +29,7 @@ SRCB = ${addprefix Srcb/, ${SRC_FILESB}}
 OBJ = ${SRC:.c=.o}
 OBJB = ${SRCB:.c=.o}
 CC = cc 
-FLAGS = -Wall -Werror -Wextra -g3
+FLAGS = -Wall -Werror -Wextra
 RM = rm -f 
 
 ${NAME}: ${OBJ}
