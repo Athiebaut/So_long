@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:10:46 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/22 15:17:54 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:10:20 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ static void	check_characters(char *map, t_game *so_long)
 	{
 		ft_printf("/!\\ Erreur, nombre de joueur, sortie ");
 		ft_printf("ou collectibles incorrect. /!\\\n");
-		ft_free(so_long, 1);
-		exit(0);
+		(ft_free(so_long, 1), exit(0));
 	}
 }
 

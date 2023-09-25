@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:55:36 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/25 11:51:42 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:12:09 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,16 @@ static void	window(t_game *so_long)
 {
 	int	sizex;
 	int	sizey;
-	
+
 	sizex = 0;
 	sizey = 0;
 	so_long->pixel = 60;
 	so_long->mlx = mlx_init();
 	if (!so_long->mlx)
-	{
-		ft_free(so_long, 0);
-		exit(1);
-	}
+		(ft_free(so_long, 0), exit(1));
 	mlx_get_screen_size(so_long->mlx, &sizex, &sizey);
-	if (sizex < so_long->pixel * so_long->map_x || sizey < so_long->pixel * so_long->map_y)
+	if (sizex < so_long->pixel * so_long->map_x || sizey < so_long->pixel
+		* so_long->map_y)
 		window_error(so_long);
 	so_long->mlx_win = mlx_new_window(so_long->mlx, (so_long->pixel
 				* so_long->map_x) + 100, so_long->pixel

@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 14:05:11 by alix              #+#    #+#             */
-/*   Updated: 2023/09/22 15:06:42 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:10:53 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ void	fill_window(t_game *so_long)
 		}
 		so_long->y++;
 	}
-	usleep(10000);
-	print_movements(so_long);
+	(usleep(10000), print_movements(so_long));
 }
