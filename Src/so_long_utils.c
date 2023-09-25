@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 11:29:41 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/04 15:21:30 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:55:01 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ void	ft_free(t_game *so_long, int info)
 	{
 		mlx_destroy_image(so_long->mlx, so_long->file);
 		mlx_destroy_window(so_long->mlx, so_long->mlx_win);
-		mlx_destroy_display(so_long->mlx);
 	}
 	if (info == 4)
-	{
 		mlx_destroy_window(so_long->mlx, so_long->mlx_win);
-		mlx_destroy_display(so_long->mlx);
-	}
 	if (info == 2 || info == 3 || info == 4)
+	{
+		mlx_destroy_display(so_long->mlx);
 		free(so_long->mlx);
+	}
 }
 
 size_t	count_lines(char **carte)

@@ -6,11 +6,18 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:55:36 by athiebau          #+#    #+#             */
-/*   Updated: 2023/09/22 16:40:29 by athiebau         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:48:47 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/so_long.h"
+
+void	window_error(t_game *so_long)
+{
+	ft_printf("/!\\ Erreur, taille de la fenetre plus grande que l'ecran. /!\\\n");
+	ft_free(so_long, 2);
+	exit(1);
+}
 
 static void	window(t_game *so_long)
 {
@@ -28,11 +35,7 @@ static void	window(t_game *so_long)
 	}
 	mlx_get_screen_size(so_long->mlx, &sizex, &sizey);
 	if (sizex < so_long->pixel * so_long->map_x || sizey < so_long->pixel * so_long->map_y)
-	{
-		ft_printf("/!\\ Erreur, taille de la fenetre plus grande que l'ecran. /!\\\n");
-		ft_free(so_long, 2);
-		exit(1);
-	}
+		window_error(so_long);
 	so_long->mlx_win = mlx_new_window(so_long->mlx, so_long->pixel
 			* so_long->map_x, so_long->pixel
 			* so_long->map_y, "Advance Effect");
